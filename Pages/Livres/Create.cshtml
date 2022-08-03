@@ -1,0 +1,64 @@
+@page
+@model Bibliotheque.Pages.Livres.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="text-center">Ajouter un nouveau livre</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Livre.titre" class="control-label"></label>
+                <input asp-for="Livre.titre" class="form-control" />
+                <span asp-validation-for="Livre.titre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Livre.Auteur" class="control-label"></label>
+                <input asp-for="Livre.Auteur" class="form-control" />
+                <span asp-validation-for="Livre.Auteur" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Livre.genre" class="control-label"></label>
+                <select id="genre" class="form-control mb-2 mr-sm-2" 
+                    asp-for="Livre.genre">
+                        
+                        <option value="roman">romanesque</option>
+                        <option value="theatral">theatral</option>
+                        <option value="naratif">naratif</option>
+                        <option value="poetique">poetique</option>
+                        <option value="romam">romam</option>
+                        <option value="romam">epistolaire</option>
+                </select>
+                <span asp-validation-for="Livre.genre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Livre.Image" class="control-label"></label>
+                <input asp-for="Livre.Image" class="form-control" />
+                <span asp-validation-for="Livre.Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Livre.edition" class="control-label"></label>
+                <input asp-for="Livre.edition" class="form-control" />
+                <span asp-validation-for="Livre.edition" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Livre.description" class="control-label"></label>
+                <input asp-for="Livre.description" class="form-control" />
+                <span asp-validation-for="Livre.description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+

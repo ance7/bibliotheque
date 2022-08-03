@@ -1,0 +1,56 @@
+           @page
+@model Bibliotheque.Pages.Livres.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center">Nos livres</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<div class="conteneur">
+<form class="form-inline">
+    <label class="sr-only" for="search">Rechercher par titre</label>
+    <input id="search" class="form-control mb-2 mr-sm-2" asp-for="SearchString"
+        placeholder="titre">
+
+    <label class="sr-only" for="genre">Rechercher par genre</label>
+    <select id="genre" class="form-control mb-2 mr-sm-2" 
+    asp-for="GenreLivre" asp-item="Model.genre" >
+        <option value="">All</option>
+        <option value="roman">romanesque</option>
+        <option value="theatral">theatral</option>
+        <option value="naratif">naratif</option>
+        <option value="poetique">poetique</option>
+        <option value="romam">romam</option>
+        <option value="romam">epistolaire</option>
+    </select>
+
+    <input class="btn btn-primary mb-2" type="submit" value="Filtrer" />
+</form>
+<table class="table">
+    
+    <tbody>
+     
+        <div class="livre-index-container" >
+@foreach (var item in Model.Livre) {
+      <a asp-page="./Details" asp-route-id="@item.id">
+        <div class="livre-index-livre-container">
+            <img src="@Html.DisplayFor(model => item.Image)" class="livre-index-livre" />
+            <p>
+            @Html.DisplayFor(model => item.edition) <br>
+            @Html.DisplayFor(model => item.Auteur)<br>
+            <u><strong> @Html.DisplayFor(model => item.titre)</strong> </u>
+            </p>
+        </div>     
+      </a>
+}
+    
+    
+    </div>
+    
+    </tbody>
+</table>
+</div>
